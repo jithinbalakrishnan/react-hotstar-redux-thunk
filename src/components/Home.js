@@ -21,11 +21,13 @@ const Home = () => {
   const { data: listV2 } = useSelector(state => state.movieListV2);
 
   useEffect(()=> {
-    // OLD REDUCER FUNCTION
+    // Dispatching Thunk Actions
     dispatch(fetchMovie())
-    // NEW CREATE REDUCER AND CREATE ACTION FUNCTION LOGIC
     dispatch(fetchMovieV2())
   },[])
+
+  // When you dispatch a thunk action, Redux-Thunk intercepts it and invokes the thunk 
+  // function with the dispatch method and getState function as arguments.
 
   useEffect(()=>{
     setMovieList(data)
